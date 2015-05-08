@@ -50,7 +50,7 @@ router.route('/:name')
   })
   .get(function(request, response) {
     client.hget('cities', request.params.name, function(error, description) {
-    response.render('show.ejs',
+    response.render('pages/show.ejs',
                       { city:
                         { name: request.params.name, description: description }
                       });
