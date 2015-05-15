@@ -4,20 +4,13 @@ var app = app || {};
 
 	app.AppView = Backbone.View.extend({
 
-     el: '#funtimes',
+     el: '#app',
 
-     events: {
-       "submit": 'formSubmit',
-       "click .city-list": 'removeCity'
-     },
-     
-     formSubmit: function() {
-       alert('FormSub');
-     },
+     initialize: function() {
 
-     removeCity: function() {
-       alert('WeeeDelete');
-     }
+       new app.CityListView();
+       
+     },
 
 	});
 

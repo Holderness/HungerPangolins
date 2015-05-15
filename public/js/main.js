@@ -6,27 +6,29 @@ var ESC_KEY = 27;
 
 $(function(){
 
-  $.get('/cities', appendToList);
+  // $.get('/cities', appendToList);
 
-  $('form').on('submit', function(event) {
-    event.preventDefault();
+  // $('form').on('submit', function(event) {
+  //   event.preventDefault();
 
-    var form = $(this);
-    var cityData = form.serialize();
+  //   var form = $(this);
+  //   var cityData = form.serialize();
 
-    $('.alert').hide();
+  //   $('.alert').hide();
 
-    $.ajax({
-      type: 'POST', url: '/cities', data: cityData
-    })
-    .error(function() {
-      $('.alert').show();
-    })
-    .success(function(cityName){
-      appendToList([cityName]);
-      form.trigger('reset');
-    });
-  });
+  //   console.log(cityData);
+
+  //   $.ajax({
+  //     type: 'POST', url: '/cities', data: cityData
+  //   })
+  //   .error(function() {
+  //     $('.alert').show();
+  //   })
+  //   .success(function(cityName){
+  //     appendToList([cityName]);
+  //     form.trigger('reset');
+  //   });
+  // });
 
   function appendToList(cities) {
     var list = [];
@@ -60,8 +62,9 @@ $(function(){
 
 
 // BACKBONE
-debugger;
+
   new app.AppView();
+
 
 
 

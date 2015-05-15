@@ -2,11 +2,11 @@ app = app || {};
 
 (function() {
 
-  var Cities = Backbone.Collection.extend({
-    model: app.City
-
+  app.CityList = Backbone.Collection.extend({
+    model: app.City,
+    url: '/cities'
   });
 
-  app.cities = new Cities();
+  // app.cityList = new CityList();
 
 })();

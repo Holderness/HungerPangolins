@@ -3,7 +3,7 @@
 var express = require('express');
 
 var bodyParser = require('body-parser');
-var urlencode = bodyParser.urlencoded({ extended: false });/** extended false ensures node's native qs string parsing library */
+var urlencode = bodyParser.urlencoded({ extended: true });/** extended false ensures node's native qs string parsing library */
 
 /** .send, by default, when passed a string, returns text/html
 if we pass in an array or object, it returns json
@@ -30,6 +30,9 @@ router.route('/')
     });
   })
   .post(urlencode, function(request, response) {
+    debugger;
+    console.log('request body: ', request.body);
+    console.log('request name: ', request.body.name);
     var newCity = request.body;
     if (!newCity.name || !newCity.description) {
       response.sendStatus(400);
