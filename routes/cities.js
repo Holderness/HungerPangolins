@@ -30,7 +30,6 @@ router.route('/')
     });
   })
   .post(urlencode, function(request, response) {
-    debugger;
     console.log('request body: ', request.body);
     console.log('request name: ', request.body.name);
     var newCity = request.body;
@@ -42,10 +41,19 @@ router.route('/')
       if (error) throw error;
       response.status(201).json(newCity.name);
     });
+  })
+  .delete(function(request, response) {
+    console.log('wwwww');
+    console.log(request);
+    client.hdel('cities', request.params.name, function(error) {
+      if (error) throw error;
+      response.sendStatus(204);
+    });
   });
 
 router.route('/:name')
   .delete(function(request, response) {
+    console.log(request);
     client.hdel('cities', request.params.name, function(error) {
       if (error) throw error;
       response.sendStatus(204);

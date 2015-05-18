@@ -4,7 +4,7 @@ var app = app || {};
 
 	app.City = Backbone.Model.extend({
 
-		url: '/cities',
+		urlRoot: '/cities/',
 
     defaults: {
 			name: '',

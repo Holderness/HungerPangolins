@@ -8,7 +8,7 @@ var app = app || {};
 
     events: {
        "submit": 'addCity',
-       "click .city-list": 'removeCity'
+       "click .delete": 'removeCity'
     },
 
     initialize: function() {
@@ -44,10 +44,15 @@ var app = app || {};
     addCity: function( e ) {
       e.preventDefault();
       this.collection.fetch( {data: this.newAttributes(), type: 'POST'} );
+      this.$('#new-cityname').val('');
+      this.$('#new-citydesc').val('');
     },
 
     removeCity: function() {
-      
+      // var target = this.el.textContent.trim();
+
+      // this.collection.fetch( { data: {name: target}, type: 'DELETE'} ); // not working
+
     }
 
   });

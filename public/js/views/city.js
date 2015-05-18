@@ -17,7 +17,8 @@ var app = app || {};
     },
 
     initialize: function() {
-      this.listenTo( this.model, 'destroy', this.remove() );
+
+      this.listenTo( this.model, 'delete', this.remove );
     },
 
     render: function() {
@@ -27,8 +28,11 @@ var app = app || {};
     },
 
     removeCity: function() {
+      // var target = this.el.textContent.trim();
+      // debugger;
+      // this.model.destroy( { });
 
-
+      //not working
     }
 
 
